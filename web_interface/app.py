@@ -19,10 +19,8 @@ import numpy as np
 import plotly.graph_objects as go
 from dotenv import load_dotenv
 
-import streamlit as st
-import os
 
-st.write("OPENWEATHERMAP_API_KEY loaded:", bool(st.secrets.get("OPENWEATHERMAP_API_KEY")))
+
 
 
 # Setup paths
