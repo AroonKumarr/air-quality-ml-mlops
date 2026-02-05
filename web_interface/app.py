@@ -19,6 +19,12 @@ import numpy as np
 import plotly.graph_objects as go
 from dotenv import load_dotenv
 
+import streamlit as st
+import os
+
+st.write("OPENWEATHERMAP_API_KEY loaded:", bool(st.secrets.get("OPENWEATHERMAP_API_KEY")))
+
+
 # Setup paths
 WEBAPP_DIR = Path(__file__).parent
 PROJECT_ROOT = WEBAPP_DIR.parent
@@ -938,7 +944,7 @@ def main():
     st.markdown("""
     <div class='developer-credit'>
         <p>Developed by <strong>Aroon Kumar</strong></p>
-        <p style='font-size: 0.8em; opacity: 0.7;'>Pearls Project | Islamabad AQI Predictor</p>
+        <p style='font-size: 0.8em; opacity: 0.7;'>10 Pearls Project | Islamabad AQI Predictor</p>
     </div>
     """, unsafe_allow_html=True)
 
