@@ -26,24 +26,24 @@ jobs:
           pip install -r requirements.txt
       
       - name: Run training pipeline
-        env:
-          HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
-          HOPSWORKS_PROJECT_NAME: ${{ secrets.HOPSWORKS_PROJECT_NAME }}
-          MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
-        run: |
-          python pipelines/training_pipeline.py
-      
-      - name: Upload trained models
-        uses: actions/upload-artifact@v4
-        with:
-          name: trained-models
-          path: models/
-          retention-days: 30
-      
-      - name: Upload logs
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: training-pipeline-logs
-          path: logs/
-          retention-days: 7
+  env:
+    HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
+    HOPSWORKS_PROJECT_NAME: ${{ secrets.HOPSWORKS_PROJECT_NAME }}
+    MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
+  run: |
+    python data_pipeline/training_orchestration.py
+
+    - name: Upload trained models
+      uses: actions/upload-artifact@v4
+      with:
+        name: trained-models
+        path: model_artifacts/
+        retention-days: 30
+
+    - name: Upload logs
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: training-pipeline-logs
+        path: logs/
+        retention-days: 7

@@ -39,7 +39,7 @@ jobs:
           export HOPSWORKS_API_KEY="${HOPSWORKS_API_KEY}"
           export HOPSWORKS_PROJECT_NAME="${HOPSWORKS_PROJECT_NAME}"
           python -c "import os; print('Python sees OPENWEATHERMAP_API_KEY:', bool(os.getenv('OPENWEATHERMAP_API_KEY')))"
-          python pipelines/feature_pipeline.py
+          python data_pipeline/feature_orchestration.py
       
       - name: Upload logs
         uses: actions/upload-artifact@v4
