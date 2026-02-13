@@ -113,4 +113,4 @@ air-quality-ml/
 Aroon Kumar
 
 ## Project Ownership
-This project is maintained and extended by Aroon Kumar.
+This project is maintained and extended by Aroon_Kumar.
