@@ -479,8 +479,8 @@ def load_historical_data():
     """Load historical data from local files."""
     try:
         # Try parquet first, then CSV
-        parquet_path = PROJECT_ROOT / "data" / "processed" / "islamabad_features.parquet"
-        csv_path = PROJECT_ROOT / "data" / "processed" / "islamabad_aqi_features_upload.csv"
+        parquet_path = PROJECT_ROOT / "datasets" / "curated_data" / "islamabad_features.parquet"
+        csv_path = PROJECT_ROOT / "datasets" / "curated_data" / "islamabad_aqi_features_upload.csv"
         
         if parquet_path.exists():
             df = pd.read_parquet(parquet_path)
